@@ -1,0 +1,19 @@
+body {
+  width: 90%;
+  height: 100%;
+  margin: 5% auto;
+  background: linear-gradient(
+    106.5deg,
+    rgba(255, 215, 185, 0.91) 23%,
+    rgba(223, 159, 247, 0.8) 93%
+  );
+  font-family: "Noto Sans", sans-serif;
+}
+
+.weather-app {
+  background: #ffffffe0;
+  max-width: 1000px;
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+}
