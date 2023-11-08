@@ -16,6 +16,8 @@ function refreshWeather(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temeratureElement.innerHTML = Math.round(temperature);
+
+  getForecast(response.data);
 }
 
 function formatDate(date) {
@@ -49,9 +51,16 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+function getForecast(city) {
+  apiKey = "fa9b5od34af433a7b000be6ft1a75606";
+  apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
 
+function displayForecast(response) {
+  console.log(response.data);
+
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
   days.forEach(function (day) {
@@ -78,4 +87,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Toronto");
-displayForecast();
